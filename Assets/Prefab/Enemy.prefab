@@ -129,9 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b119a840569ce643a2cce266b1abee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  sightLength: 10
-  fov: 30
+  moveSpeed: 2
+  sightLength: 100
+  fov: 80
   marker1: {fileID: 0}
   marker2: {fileID: 0}
   rb: {fileID: 8909108368968157035}
@@ -214,7 +214,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -55378300, guid: 1d3b4e5927f2b7a488fc277798dd39b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.4, y: 4.8}
