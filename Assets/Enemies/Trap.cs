@@ -17,19 +17,23 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.CompareTag("Enemy"))
+        if (active)
         {
-            OnEnemyDeath?.Invoke();
-        }
+            if (collider.gameObject.CompareTag("Enemy"))
+            {
+                OnEnemyDeath?.Invoke();
+            }
 
-        if (collider.gameObject.CompareTag("Player"))
-        {
-            OnPlayerDeath?.Invoke();
+            if (collider.gameObject.CompareTag("Player"))
+            {
+                OnPlayerDeath?.Invoke();
+            }
         }
     }
 
     public void Activate()
     {
         active = !active;
+        Debug.Log("trap state changed");
     }
 }
