@@ -6,26 +6,30 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    public Rigidbody2D rb;
+    public Rigidbody rb;
     public Animator animator;
 
-    Vector2 movement;
+    Vector3 movement;
 
     // Update is called once per frame
     void Update()
     {
-       movement.x = Input.GetAxisRaw("Horizontal");
-       movement.y = Input.GetAxisRaw("Vertical");
+     float horizontalInput = Input.GetAxisRaw("Horizontal");
+     float verticalInput = Input.GetAxisRaw("Vertical");
+
+      // Construct the movement vector
+       movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+
 
        animator.SetFloat("Horizontal", movement.x);
-       animator.SetFloat("Vertical", movement.y);
+       animator.SetFloat("Vertical", movement.z);
        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     void FixedUpdate()
     {
     //movement
-    rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
+    rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
 
     }
