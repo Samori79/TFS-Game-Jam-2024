@@ -39,4 +39,11 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+      private void Death()
+    {
+        animator.SetTrigger("JesterDie");
+        Debug.Log("Player has fallen :(");
+        Destroy(gameObject, 1.5f);
+    }
+
 }
