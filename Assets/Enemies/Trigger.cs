@@ -20,9 +20,10 @@ public class Trigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("E") && Vector3.Distance(transform.position, playerRef.position) <= activationRange)
+        if (Input.GetButtonDown("Jump") && Vector3.Distance(transform.position, playerRef.position) <= activationRange)
         {
             Lever?.Invoke();
+            Debug.Log("lever pulled");
         }
     }
 }

@@ -303,6 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5041282519017978195}
   - component: {fileID: 4790847866928702902}
+  - component: {fileID: -91222150413212544}
   m_Layer: 0
   m_Name: lever_low
   m_TagString: Untagged
@@ -352,6 +353,19 @@ PlayableDirector:
     value: {fileID: 4790847868939780151}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &-91222150413212544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673949564420465641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d775a14690d894eab4bceacd45066b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationRange: 3
 --- !u!1 &9220108458036753559
 GameObject:
   m_ObjectHideFlags: 0
