@@ -11,6 +11,11 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 movement;
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     // Update is called once per frame
     void Update()
     {
