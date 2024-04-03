@@ -7,6 +7,7 @@ public class Trap : MonoBehaviour
 {
     public static event Action OnEnemyDeath;
     public static event Action OnPlayerDeath;
+    private bool active = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +32,10 @@ public class Trap : MonoBehaviour
         {
             OnPlayerDeath?.Invoke();
         }
+    }
+
+    public void Activate()
+    {
+        active = !active;
     }
 }
