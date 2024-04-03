@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Transform marker1;
     [SerializeField] Transform marker2;
     Rigidbody rb;
+    Animator anim;
     bool headedTo1 = false;
     private DateTime lastCalledTime;
     TimeSpan threshold;
@@ -26,8 +27,8 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
         target = GameObject.Find("Player").transform;
-        //lastCalledTime = DateTime.Now;
         if (!marker1 || !marker2)
             Debug.Log("Pathfinding transforms are missing on " + gameObject.name);
         threshold = TimeSpan.FromSeconds(2);
@@ -42,7 +43,12 @@ public class EnemyAI : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             // Calculate the angle between the direction to the target and the forward direction of the object
-            float angleDifference = Mathf.DeltaAngle(angle, transform.eulerAngles.z);
+            //float angleDifference = Mathf.DeltaAngle(angle, transform.eulerAngles.z);
+
+            // Calculate the angle between the direction to the target and the forward direction of the object
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+            Vector3 rotatedDirection = rotation * Vector3.right; // Assuming forward direction is along the positive x-axis
+            float angleDifference = Vector3.SignedAngle(rotatedDirection, direction, Vector3.forward);
 
             // Check if the angle difference is within the desired range
             if (Mathf.Abs(angleDifference) <= fov)
@@ -86,6 +92,11 @@ public class EnemyAI : MonoBehaviour
         if(!pause)
         {
             rb.velocity = new Vector3(moveDirection.x, moveDirection.y, moveDirection.z) * moveSpeed;
+
+            if (rb.velocity != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(rb.velocity.normalized);
+            }
         }
     }
 
@@ -142,6 +153,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Death()
     {
+        lastCalledTime = DateTime.Now;
+        anim.SetTrigger("Death");
         Debug.Log("Enemy has fallen!");
+        Destroy(gameObject, 1.5f);
     }
 }
