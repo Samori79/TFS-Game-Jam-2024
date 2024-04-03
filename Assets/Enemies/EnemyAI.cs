@@ -31,6 +31,7 @@ public class EnemyAI : MonoBehaviour
         if (!marker1 || !marker2)
             Debug.Log("Pathfinding transforms are missing on " + gameObject.name);
         threshold = TimeSpan.FromSeconds(2);
+        Trap.OnEnemyDeath += Death;
     }
 
     private void Update()
@@ -80,41 +81,6 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-
-    //private void Update()
-    //{
-    //    if (Vector3.Distance(target.position, transform.position) < sightLength)
-    //    {
-    //        Vector3 direction = (target.position - transform.position).normalized;
-    //        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-    //        // Calculate the angle between the direction to the target and the forward direction of the object
-    //        float angleDifference = Mathf.DeltaAngle(angle, transform.eulerAngles.z);
-
-    //        // Check if the angle difference is within the desired range
-    //        if (Mathf.Abs(angleDifference) <= fov)
-    //        {
-    //            // Perform a raycast in the direction of the target
-    //            if (Physics.Raycast(transform.position, direction, out _hit))
-    //            {
-    //                if (_hit.collider.gameObject.CompareTag("Player"))
-    //                {
-    //                    Chase(direction);
-    //                    return;
-    //                }
-    //            }
-    //        }
-    //    }
-    //    if (!isSearching(threshold))
-    //    {
-    //        Walk();
-    //    }
-    //    else
-    //    {
-    //        Searching();
-    //    }
-    //}
-
     private void FixedUpdate()
     {
         if(!pause)
@@ -153,7 +119,7 @@ public class EnemyAI : MonoBehaviour
     private void Chase(Vector3 direction)
     {
         pause = false;
-        Debug.Log("Chase is called");
+        //Debug.Log("Chase is called");
         if (target)
         {           
             moveDirection = direction;
@@ -171,6 +137,11 @@ public class EnemyAI : MonoBehaviour
     {
         pause = true;
         rb.velocity = Vector3.zero;
-        Debug.Log("Searching is called");
+        //Debug.Log("Searching is called");
+    }
+
+    private void Death()
+    {
+        Debug.Log("Enemy has fallen!");
     }
 }
