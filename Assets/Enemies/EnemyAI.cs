@@ -12,8 +12,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float fov = 10f;
     [SerializeField] Transform marker1;
     [SerializeField] Transform marker2;
-    Rigidbody rb;
-    Animator anim;
+    public Rigidbody rb;
+    public Animator anim;
     bool headedTo1 = false;
     private DateTime lastCalledTime;
     TimeSpan threshold;
@@ -27,7 +27,8 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
+
         target = GameObject.FindGameObjectWithTag("Player").transform;
         if (!marker1 || !marker2)
             Debug.Log("Pathfinding transforms are missing on " + gameObject.name);
@@ -40,7 +41,14 @@ public class EnemyAI : MonoBehaviour
         if (Vector3.Distance(target.position, transform.position) < sightLength)
         {
             Vector3 direction = (target.position - transform.position).normalized;
+
+            //movement animation stuff related to direction
+
+
+
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+    
 
             // Calculate the angle between the direction to the target and the forward direction of the object
             //float angleDifference = Mathf.DeltaAngle(angle, transform.eulerAngles.z);
@@ -91,7 +99,13 @@ public class EnemyAI : MonoBehaviour
     {
         if(!pause)
         {
-            rb.velocity = new Vector3(moveDirection.x, moveDirection.y, moveDirection.z) * moveSpeed;
+            rb.velocity = new Vector3(moveDirection.x, moveDirection.y, moveDirection.z).normalized * moveSpeed;
+ 
+            anim.SetFloat("Horizontal", rb.velocity.x);
+            anim.SetFloat("Vertical", rb.velocity.z);
+            anim.SetFloat("Speed", rb.velocity.sqrMagnitude);
+
+           
 
             if (rb.velocity != Vector3.zero)
             {
