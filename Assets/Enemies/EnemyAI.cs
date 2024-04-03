@@ -27,13 +27,8 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-<<<<<<< Updated upstream
         anim = GetComponent<Animator>();
-        target = GameObject.Find("Player").transform;
-=======
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        //lastCalledTime = DateTime.Now;
->>>>>>> Stashed changes
         if (!marker1 || !marker2)
             Debug.Log("Pathfinding transforms are missing on " + gameObject.name);
         threshold = TimeSpan.FromSeconds(2);
