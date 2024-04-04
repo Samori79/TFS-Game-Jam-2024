@@ -31,7 +31,11 @@ public void Activate()
         active = !active;
         pd.Play();
         Debug.Log("door state changed");
+        Invoke("SceneLoad", 1.4f);
     }
 
-
+    public void SceneLoad()
+    {
+        GameManager.Instance.LoadNextScene();
+    }
 }
