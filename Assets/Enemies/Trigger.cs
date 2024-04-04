@@ -10,6 +10,8 @@ public class Trigger : MonoBehaviour
 
     public PlayableDirector pd;
 
+    private bool active = false;
+
     Transform playerRef;
     public static event Action Lever;
     public float activationRange = 3.0f;
@@ -22,7 +24,7 @@ public class Trigger : MonoBehaviour
             Debug.Log("Lever cannot find the player T.T");
 
 
-            pd = GetComponent<PlayableDirector>();
+         pd = GetComponent<PlayableDirector>();
 
         
     }
@@ -37,7 +39,13 @@ public class Trigger : MonoBehaviour
 
 
         //on trigger activate, play animation :)
-            pd.Play();
+        if (!active){
+
+            active = !active;
+            pd.Play(leverActivated,Hold);
+
+        }
+            
 
         }
     }
