@@ -38,4 +38,12 @@ public void Activate()
     {
         GameManager.Instance.LoadNextScene();
     }
+
+    void onDisable()
+    {
+
+                keyscript.Unlock -= Activate;
+                pd = null;
+
+    }
 }

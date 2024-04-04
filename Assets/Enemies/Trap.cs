@@ -56,4 +56,8 @@ public class Trap : MonoBehaviour
         active = !active;
         Debug.Log("trap state changed");
     }
+    private void OnDisable() {
+                Trigger.Lever -= Activate;
+
+    }
 }
