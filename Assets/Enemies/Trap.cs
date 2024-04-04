@@ -41,6 +41,18 @@ public class Trap : MonoBehaviour
 
             }
 
+            if (collider.gameObject.CompareTag("Enemy2"))
+            {
+                OnEnemyDeath?.Invoke();
+
+            }
+
+            if (collider.gameObject.CompareTag("Enemy3"))
+            {
+                OnEnemyDeath?.Invoke();
+
+            }
+
             if (collider.gameObject.CompareTag("Player"))
             {
                 OnPlayerDeath?.Invoke();
