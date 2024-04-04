@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Playables;
+
 
 
 public class keyscript : MonoBehaviour
 {
+   public static event Action Unlock;
 
    // public static event Action OnPlayerDeath;
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class keyscript : MonoBehaviour
             {
                // OnPlayerDeath?.Invoke();
                 Debug.Log("Touched the key :)");
+                Unlock?.Invoke();
                 Destroy(gameObject);
             }
 
