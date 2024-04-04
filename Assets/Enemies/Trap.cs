@@ -22,19 +22,26 @@ public class Trap : MonoBehaviour
 
     private void Update()
     {
-        if (active)
+       /* if (active)
         {
             playableDirector.Play();
-        }
+        } */
     }
 
     public void OnTriggerEnter(Collider collider)
     {
         if (active)
         {
+
+            if (active)
+            {
+                playableDirector.Play();
+            }
+
             if (collider.gameObject.CompareTag("Enemy"))
             {
                 OnEnemyDeath?.Invoke();
+
             }
 
             if (collider.gameObject.CompareTag("Player"))
