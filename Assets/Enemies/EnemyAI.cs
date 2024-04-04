@@ -168,6 +168,7 @@ public class EnemyAI : MonoBehaviour
     private void Death()
     {
         lastCalledTime = DateTime.Now;
+        moveSpeed = 0f;
         anim.SetTrigger("Death");
         Debug.Log("Enemy has fallen!");
         Destroy(gameObject, 1.5f);

@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+         Trap.OnPlayerDeath += Death;
+
     }
 
     // Update is called once per frame
@@ -41,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
       private void Death()
     {
-        animator.SetTrigger("JesterDie");
+        moveSpeed = 0f;
+        animator.SetTrigger("Death");
         Debug.Log("Player has fallen :(");
         Destroy(gameObject, 1.5f);
     }
