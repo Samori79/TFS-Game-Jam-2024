@@ -28,13 +28,13 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void ChangeScene(string sceneName)
+    public void StartGame()
     {
-        Debug.Log("Eggbert");
-        //SceneManager.LoadScene(sceneName);
+        Debug.Log("LoadGaem");
+        SceneManager.LoadScene("TestLevel");
     }
 
-    private void Quit() //version specific code
+    public void Quit() //version specific code
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
