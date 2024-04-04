@@ -9,7 +9,7 @@ public class Door : MonoBehaviour
 
     private bool active = false;
 
-    private PlayableDirector pd;
+    public PlayableDirector pd;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,21 +21,21 @@ public class Door : MonoBehaviour
     void Awake()
     {
         
-        //pd = GetComponent<PlayableDirector>();
+        pd = GetComponent<PlayableDirector>();
        
 
     }
 
     // Update is called once per frame
-    void Update()
+   /* void Update()
     {
         
-    }
+    }*/
 
 public void Activate()
     {
         active = !active;
-     //   pd.Play();
+        pd.Play();
         Debug.Log("door state changed");
         Invoke("SceneLoad", 1.4f);
     }
@@ -45,10 +45,11 @@ public void Activate()
         GameManager.Instance.LoadNextScene();
     }
 
-    void onDisable()
+   private void OnDisable()
     {
 
-                keyscript.Unlock -= Activate;
+        keyscript.Unlock -= Activate;
+
                
 
     }
