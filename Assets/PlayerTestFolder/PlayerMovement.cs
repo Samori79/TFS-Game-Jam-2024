@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
@@ -56,6 +57,14 @@ public class PlayerMovement : MonoBehaviour
     private void LoadFailScreen()
     {
         SceneManager.LoadScene("FailScreen");
+    }
+
+    public void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("Enemy"))
+        {
+            Death();
+        }
     }
 
 }
