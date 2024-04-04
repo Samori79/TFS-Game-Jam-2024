@@ -22,10 +22,10 @@ public class Trap : MonoBehaviour
 
     private void Update()
     {
-       /* if (active)
+       if (active)
         {
             playableDirector.Play();
-        } */
+        } 
     }
 
     public void OnTriggerEnter(Collider collider)
@@ -33,10 +33,7 @@ public class Trap : MonoBehaviour
         if (active)
         {
 
-            if (active)
-            {
-                playableDirector.Play();
-            }
+    
 
             if (collider.gameObject.CompareTag("Enemy"))
             {
