@@ -2,9 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+
 
 public class Trigger : MonoBehaviour
 {
+
+    public PlayableDirector pd;
+
     Transform playerRef;
     public static event Action Lever;
     public float activationRange = 3.0f;
@@ -15,6 +20,11 @@ public class Trigger : MonoBehaviour
         playerRef = GameObject.FindGameObjectWithTag("Player").transform;
         if (!playerRef)
             Debug.Log("Lever cannot find the player T.T");
+
+
+            pd = GetComponent<PlayableDirector>();
+
+        
     }
 
     // Update is called once per frame
@@ -24,6 +34,11 @@ public class Trigger : MonoBehaviour
         {
             Lever?.Invoke();
             Debug.Log("lever pulled");
+
+
+        //on trigger activate, play animation :)
+            pd.Play();
+
         }
     }
 }

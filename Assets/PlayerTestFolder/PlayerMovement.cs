@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
          Trap.OnPlayerDeath += Death;
+         
 
     }
 
