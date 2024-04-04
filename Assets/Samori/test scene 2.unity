@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e2341a9d03e86ec4290c72b1e22bbc7c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 1.5190313, g: 0.3712509, b: 0.3218435, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6234794870307194507, guid: 15cc20ae5aa8fb743a1d4d61573008cf, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6234794870307194507, guid: 15cc20ae5aa8fb743a1d4d61573008cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -180,6 +180,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15cc20ae5aa8fb743a1d4d61573008cf, type: 3}
+--- !u!1001 &814856346
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5589933642081586337, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_Name
+      value: CharacterBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589933642081586346, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589933642081586346, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.540773
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589933642081586346, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589933642081586346, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.064407
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589933642081586346, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589933642081586346, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589933642081586346, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589933642081586346, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589933642081586346, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589933642081586346, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589933642081586346, guid: 4172251109d412d45a73e885a979ad59, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4172251109d412d45a73e885a979ad59, type: 3}
 --- !u!1001 &1247005948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -329,5 +386,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
