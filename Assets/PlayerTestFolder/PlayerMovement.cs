@@ -50,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("Death");
         Debug.Log("Player has fallen :(");
         Destroy(gameObject, 1.5f);
+        Invoke("LoadFailScreen", 1.5f); // Call LoadFailScreen method after 1.5 seconds
+    }
+
+    private void LoadFailScreen()
+    {
         SceneManager.LoadScene("FailScreen");
     }
 
