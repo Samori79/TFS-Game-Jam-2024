@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Trap : MonoBehaviour
 {
@@ -9,10 +10,22 @@ public class Trap : MonoBehaviour
     public static event Action OnPlayerDeath;
     private bool active = false;
 
+    public PlayableDirector playableDirector;
+
     // Start is called before the first frame update
     void Start()
     {
         Trigger.Lever += Activate;
+
+        playableDirector = GetComponent<PlayableDirector>();
+    }
+
+    private void Update()
+    {
+        if (active)
+        {
+            playableDirector.Play();
+        }
     }
 
     public void OnTriggerEnter(Collider collider)
