@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 
 public class Trigger : MonoBehaviour
 {
 
     public PlayableDirector pd;
+    public PlayableAsset activate;
+    public PlayableAsset deactivate;
 
     private bool active = false;
 
@@ -42,9 +45,14 @@ public class Trigger : MonoBehaviour
         if (!active){
 
             active = !active;
-            pd.Play(leverActivated,Hold);
+            pd.Play(activate);
+        }else
+        {
+            active = !active;
+            pd.Play(deactivate);
 
         }
+
             
 
         }
