@@ -28,19 +28,5 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void StartGame()
-    {
-        Debug.Log("LoadGaem");
-        SceneManager.LoadScene("TestLevel");
-    }
-
-    public void Quit() //version specific code
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
-    }
 
 }

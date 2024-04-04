@@ -17,7 +17,7 @@ public class MenuScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            SceneManager.LoadScene("FirstLevel", LoadSceneMode.Single);
+            SceneManager.LoadScene("Level1");
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
