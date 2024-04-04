@@ -67,4 +67,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+
+        Trap.OnPlayerDeath -= Death;       
+    }
+
 }

@@ -173,4 +173,9 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("Enemy has fallen!");
         Destroy(gameObject, 1.5f);
     }
+    void OnDisable()
+    {
+        Trap.OnEnemyDeath -= Death;
+
+    }
 }
