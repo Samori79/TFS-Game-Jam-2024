@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("Death");
         Debug.Log("Player has fallen :(");
         Destroy(gameObject, 1.5f);
+        SceneManager.LoadScene("FailScreen");
     }
 
 }
