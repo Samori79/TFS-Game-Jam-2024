@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
@@ -50,7 +51,20 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("Death");
         Debug.Log("Player has fallen :(");
         Destroy(gameObject, 1.5f);
+        Invoke("LoadFailScreen", 1.5f); // Call LoadFailScreen method after 1.5 seconds
+    }
+
+    private void LoadFailScreen()
+    {
         SceneManager.LoadScene("FailScreen");
+    }
+
+    public void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("Enemy"))
+        {
+            Death();
+        }
     }
 
 }
