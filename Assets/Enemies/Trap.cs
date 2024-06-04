@@ -37,7 +37,10 @@ public class Trap : MonoBehaviour
 
             if (collider.gameObject.CompareTag("Enemy"))
             {
-                OnEnemyDeath?.Invoke();
+                //OnEnemyDeath?.Invoke();
+
+                //good fix
+                collider.gameObject.GetComponent<EnemyAI>().Death();
 
             }
 
