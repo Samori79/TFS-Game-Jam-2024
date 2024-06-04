@@ -165,7 +165,7 @@ public class EnemyAI : MonoBehaviour
         //Debug.Log("Searching is called");
     }
 
-    private void Death()
+    public void Death()
     {
         lastCalledTime = DateTime.Now;
         moveSpeed = 0f;
@@ -175,7 +175,7 @@ public class EnemyAI : MonoBehaviour
     }
     void OnDisable()
     {
-        Trap.OnEnemyDeath -= Death;
+    //    Trap.OnEnemyDeath -= Death;
 
     }
 }
